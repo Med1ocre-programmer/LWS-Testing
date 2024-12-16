@@ -1049,6 +1049,31 @@
             "artikel": "die",
             "word": "Verbindung",
             "translate": "Соединение"
+        },
+        {
+            "artikel": "die",
+            "word": "Ernährung",
+            "translate": "Питание"
+        },
+        {
+            "artikel": "das",
+            "word": "Gleiche",
+            "translate": "Одно и то же"
+        },
+        {
+            "artikel": "die",
+            "word": "Verkehrshinweise",
+            "translate": "Информация о дорожном движении"
+        },
+        {
+            "artikel": "das",
+            "word": "Leitungswasser",
+            "translate": "Водопроводная вода"
+        },
+        {
+            "artikel": "die",
+            "word": "Sendung",
+            "translate": "Передача"
         }
     ],
     "Verben": [
@@ -1489,6 +1514,36 @@
             "translate": "проводить время",
             "perfekt form": "verbracht",
             "perfekt begin form": "hat"
+        },
+        {
+            "word": "erhöhen",
+            "translate": "повышать",
+            "perfekt form": "erhöht",
+            "perfekt begin form": "hat"
+        },
+        {
+            "word": "betragen",
+            "translate": "составлять",
+            "perfekt form": "betragen",
+            "perfekt begin form": "hat"
+        },
+        {
+            "word": "bilden",
+            "translate": "формировать",
+            "perfekt form": "gebildet",
+            "perfekt begin form": "hat"
+        },
+        {
+            "word": "beeilen",
+            "translate": "спешить",
+            "perfekt form": "beeilt",
+            "perfekt begin form": "hat"
+        },
+        {
+            "word": "klären",
+            "translate": "прояснять",
+            "perfekt form": "geklärt",
+            "perfekt begin form": "hat"
         }
     ],
     "Adjektive": [
@@ -1751,6 +1806,14 @@
         {
             "word": "wunderbar",
             "translate": "замечательно"
+        },
+        {
+            "word": "unglaublich",
+            "translate": "невероятный"
+        },
+        {
+            "word": "vereinzeit",
+            "translate": "единичный"
         }
     ],
     "Fragen": [
@@ -1923,6 +1986,10 @@
         {
             "word": "Können wir gerne machen",
             "translate": "Мы можем с радостью это сделать"
+        },
+        {
+            "word": "außerdem",
+            "translate": "кроме того"
         }
     ]
 }
