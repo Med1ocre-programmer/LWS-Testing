@@ -1074,6 +1074,51 @@
             "artikel": "die",
             "word": "Sendung",
             "translate": "Передача"
+        },
+        {
+            "artikel": "der",
+            "word": "Elektrobohrer",
+            "translate": "Электродрель"
+        },
+        {
+            "artikel": "der",
+            "word": "Akku-Bohrschrauber",
+            "translate": "Аккумуляторный шуруповерт"
+        },
+        {
+            "artikel": "die",
+            "word": "Wasserwaage",
+            "translate": "Уровень"
+        },
+        {
+            "artikel": "das",
+            "word": "Metermaß",
+            "translate": "Рулетка"
+        },
+        {
+            "artikel": "das",
+            "word": "Isolierband",
+            "translate": "Изолента"
+        },
+        {
+            "artikel": "der",
+            "word": "Lötkolben",
+            "translate": "Паяльник"
+        },
+        {
+            "artikel": "der",
+            "word": "Schraubendreher",
+            "translate": "Отвёртка"
+        },
+        {
+            "artikel": "die",
+            "word": "Zange",
+            "translate": "Плоскогубцы"
+        },
+        {
+            "artikel": "der",
+            "word": "Hammer",
+            "translate": "Молоток"
         }
     ],
     "Verben": [
@@ -1543,6 +1588,18 @@
             "word": "klären",
             "translate": "прояснять",
             "perfekt form": "geklärt",
+            "perfekt begin form": "hat"
+        },
+        {
+            "word": "bohren",
+            "translate": "сверлить",
+            "perfekt form": "gebohrt",
+            "perfekt begin form": "hat"
+        },
+        {
+            "word": "löten",
+            "translate": "паять",
+            "perfekt form": "gelötet",
             "perfekt begin form": "hat"
         }
     ],
