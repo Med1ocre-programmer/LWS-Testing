@@ -100,6 +100,8 @@ def get_db(file_name = 'db.json'):
     if os.path.exists(file_name): # Check file DB
         with open(file_name, 'r', encoding='utf8') as j:
             db = json.load(j)
+            global name_db
+            name_db = file_name
         if counter_db(db) == 0: # Check DB
             global mode
             print(f'\n!!! ВНИМАНИЕ: В базе данных нет слов. Пожалуйста, заполните БД как следует.')
@@ -157,7 +159,7 @@ while j == 1:
     if mode == 1:           # Deutsch -> Русский
         if dynamic_len_db == 0 or answer == '!':
             print(f"\nПравильных ответов: {statistic[0]}\nОшибок: {statistic[1]}\nВсего попыток: {statistic[0]+statistic[1]}\n")
-            db = get_db()
+            db = get_db(name_db)
             dynamic_len_db = copy.copy(static_len_db)
             answer = ''
             if mode != 999 and input('Тест окончен. Хотите повторить? [Y/n]: ') in ['Y', 'y']:
@@ -193,7 +195,7 @@ while j == 1:
     elif mode == 2:         # Русский -> Deutsch
         if dynamic_len_db == 0 or answer == '!':
             print(f"\nПравильных ответов: {statistic[0]}\nОшибок: {statistic[1]}\nВсего попыток: {statistic[0]+statistic[1]}\n")
-            db = get_db()
+            db = get_db(name_db)
             dynamic_len_db = copy.copy(static_len_db)
             answer = ''
             if mode != 999 and input('Тест окончен. Хотите повторить? [Y/n]: ') in ['Y', 'y']:
@@ -226,7 +228,7 @@ while j == 1:
     elif mode == 3:         # Артикли немецких слов
         if d_len_substantive == 0 or answer == '!':
             print(f"\nПравильных ответов: {statistic[0]}\nОшибок: {statistic[1]}\nВсего попыток: {statistic[0]+statistic[1]}\n")
-            db = get_db()
+            db = get_db(name_db)
             answer = ''
             d_len_substantive = copy.copy(s_len_substantive)
             if mode != 999 and input('Тест окончен. Хотите повторить? [Y/n]: ') in ['Y', 'y']:

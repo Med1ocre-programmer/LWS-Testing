@@ -103,6 +103,8 @@ def get_db(file_name = 'db.json'):
     if os.path.exists(file_name): # Check file DB
         with open(file_name, 'r', encoding='utf8') as j:
             db = json.load(j)
+            global name_db
+            name_db = file_name
         if counter_db(db) == 0: # Check DB
             global mode
             print(f'\n!!! ACHTUNG: Die Datenbank enthält keine Wörter. Bitte füllen Sie die Datenbank ordnungsgemäß aus.')
@@ -160,7 +162,7 @@ while j == 1:
     if mode == 1:           # Deutsch -> Übersetzung
         if dynamic_len_db == 0 or answer == '!':
             print(f"\nRichtige Antworten: {statistic[0]}\nFehler: {statistic[1]}\nGesamtversuche: {statistic[0]+statistic[1]}\n")
-            db = get_db()
+            db = get_db(name_db)
             dynamic_len_db = copy.copy(static_len_db)
             answer = ''
             if mode != 999 and input('Der Test ist beendet. Möchten Sie es wiederholen? [Y/n]: ') in ['Y', 'y', 'Д', 'д', 'J', 'j']:
@@ -196,7 +198,7 @@ while j == 1:
     elif mode == 2:         # Русский -> Deutsch
         if dynamic_len_db == 0 or answer == '!':
             print(f"\nRichtige Antworten: {statistic[0]}\nFehler: {statistic[1]}\nGesamtversuche: {statistic[0]+statistic[1]}\n")
-            db = get_db()
+            db = get_db(name_db)
             dynamic_len_db = copy.copy(static_len_db)
             answer = ''
             if mode != 999 and input('Der Test ist beendet. Möchten Sie es wiederholen? [Y/n]: ') in ['Y', 'y', 'Д', 'д', 'J', 'j']:
@@ -229,7 +231,7 @@ while j == 1:
     elif mode == 3:         # Артикли немецких слов
         if d_len_substantive == 0 or answer == '!':
             print(f"\nRichtige Antworten: {statistic[0]}\nFehler: {statistic[1]}\nGesamtversuche: {statistic[0]+statistic[1]}\n")
-            db = get_db()
+            db = get_db(name_db)
             answer = ''
             d_len_substantive = copy.copy(s_len_substantive)
             if mode != 999 and input('Der Test ist beendet. Möchten Sie es wiederholen? [Y/n]: ') in ['Y', 'y', 'Д', 'д', 'J', 'j']:
