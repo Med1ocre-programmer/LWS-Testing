@@ -40,26 +40,30 @@ def download_db():
 
 def check_update_db():
     try:
-        remoute_db = requests.get('https://raw.githubusercontent.com/Neireck/LWS-Testing/main/db.json').json()
+        remote_db = requests.get('https://raw.githubusercontent.com/Neireck/LWS-Testing/main/db.json').json()
     except ConnectionError:
         ConnectionErrorMessage('konnte nicht nach Datenbankaktualisierungen suchen')
         return
 
-    if db != remoute_db:
+    if db != remote_db:
         print('\n! Eine neue Version der Datenbank wurde erkannt.\n! Wenn Sie Ihre Wörter nicht in das Programm eingegeben haben, wählen Sie Punkt 998.')
     
-    del remoute_db
+    del remote_db
 
 def create_db(data_array, no_download = False):
-    if no_download: answer = 'N'
-    else: answer = input("Möchten Sie die Datenbank vom Entwickler herunterladen? [Y/n]: ")
+    if no_download:
+        answer = 'N'
+    else:
+        answer = input("Möchten Sie die Datenbank des Entwicklers herunterladen? [Y/n]: ")
 
-    if answer in ['Y', 'y', 'Д', 'д', 'J', 'j']:
+    if answer in ['Y', 'y', 'Д', 'д']:  # можно оставить, если хочешь допускать кириллический ввод
         if download_db() == False:
             create_db(data_array, True)
     else:
-        with open('db.json', 'w+', encoding='utf8') as j:
+        new_name_db = input('\nGeben Sie einen Namen für die neue Datenbank ein: ')
+        with open(f"{new_name_db}.json", 'w+', encoding='utf8') as j:
             json.dump(data_array, j, ensure_ascii=False)
+
 
 def counter_db(db, word_type = 'All'):
     if word_type == 'All':
@@ -68,6 +72,34 @@ def counter_db(db, word_type = 'All'):
         return len(db[word_type])
 
 def get_db(file_name = 'db.json'):
+    # Falls keine bestimmte Datei angegeben ist, fragen wir den Benutzer (Ich bin zu dumm und faul, das hat ChatGPT gemacht)
+    if file_name == 'db.json':
+        db_files = [f for f in os.listdir() if f.endswith('.json')]
+        if db_files:
+            print('\nVerfügbare Datenbanken:')
+            for i, f in enumerate(db_files, 1):
+                print(f'{i}) {f}')
+            print('000) Neue Datenbank erstellen')
+            while True:
+                try:
+                    choice = int(input('\nWählen Sie die Nummer der Datenbank: '))
+                    if 1 <= choice <= len(db_files):
+                        file_name = db_files[choice - 1]
+                        break
+                    elif choice == 000:
+                        create_db({'Substantive':[], 'Verben':[], 'Adjektive':[], 'Fragen':[], 'Anderen':[]})
+                        return get_db()
+                    else:
+                        print('Ungültige Nummer, bitte versuchen Sie es erneut.\n')
+                except ValueError:
+                    print('Bitte geben Sie eine Zahl ein.\n')
+        else:
+            print('Keine Datenbank gefunden. Neue wird erstellt...')
+            create_db({'Substantive': [], 'Verben': [], 'Adjektive': [], 'Fragen': [], 'Anderen': []})
+            return get_db()
+
+    # (Ab hier endet der von ChatGPT generierte Code)
+
     if os.path.exists(file_name): # Check file DB
         with open(file_name, 'r', encoding='utf8') as j:
             db = json.load(j)
